@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dynamic Lights - A-Frame</title>
+    <meta name="description" content="Dynamic Lights - A-Frame">
+    <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
+    <script src="./shaders/displacement-offset-shader.js"></script>
+    <script src="./shaders/simple-shader.js"></script>
+    <script src="https://unpkg.com/aframe-animation-component@3.2.5/dist/aframe-animation-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-randomizer-components@3.0.2/dist/aframe-randomizer-components.min.js"></script>
+    <script src="https://unpkg.com/aframe-entity-generator-component@3.0.1/dist/aframe-entity-generator-component.min.js"></script>
+  </head>
+  <body>
+    <a-scene background="color: #111">
+      <a-assets>
+        <a-mixin id="light"
+           geometry="primitive: sphere; radius: 1.5"
+           material="color: #FFF; shader: flat"
+           light="color: #e8ffff; distance: 300; intensity: 1; type: directional">
+        </a-mixin>
+        <a-asset-item id="twist1-obj" src="./models/twist/twist1.obj"></a-asset-item>
+        <a-asset-item id="twist2-obj" src="./models/twist/twist2.obj"></a-asset-item>
+        <a-asset-item id="twist3-obj" src="./models/twist/twist3.obj"></a-asset-item>
+        <a-asset-item id="twist4-obj" src="./models/twist/twist4.obj"></a-asset-item>
+        <a-asset-item id="twist6-obj" src="./models/twist/twist6.obj"></a-asset-item>
+        <a-asset-item id="twist7-obj" src="./models/twist/twist7.obj"></a-asset-item>
+        <a-asset-item id="twist8-obj" src="./models/twist/twist8.obj"></a-asset-item>
+      </a-assets>
+
+      <a-entity id="twist1-obj" obj-model="obj: #twist1-obj; mtl: #twist1" scale="0.001 0.001 0.001"
+        material="shader:displacement-offset"
+        myoffset-updater
+        animation="property: rotation; from: 0.000 0.000 0.000; to: 0.000 360.000 0.000; repeat: indefinite; dur: 100000; easing: linear">
+      </a-entity>
+      <a-entity id="twist2-obj" obj-model="obj: #twist2-obj; mtl: #twist2"
+        scale="173.000 173.000 173.000"
+        position="0.000 0.000 -7.757"
+        animation="property: rotation; from: 0.000 0.000 0.000; to: 0.000 360.000 0.000; repeat: indefinite; dur: 100000; easing: linear">
+      </a-entity>
+      <a-entity
+        id="twist3-obj"
+        obj-model="obj: #twist3-obj; mtl: #twist3"
+        position="1.209 0.000 0.000"
+        scale="0.02 0.02 0.02"
+        material="shader:simple"
+        animation="property: rotation; from: 0.000 0.000 0.000; to: 0.000 360.000 0.000; repeat: indefinite; dur: 100000; easing: linear">
+      </a-entity>
+      <a-entity
+        id="twist4-obj"
+        obj-model="obj: #twist4-obj; mtl: #twist4" scale="0.001 0.001 0.001"
+        animation="property: rotation; from: 0.000 0.000 0.000; to: 0.000 360.000 0.000; repeat: indefinite; dur: 100000; easing: linear">
+      </a-entity>
+      <a-entity
+        id="twist5-obj"
+        obj-model="obj: #twist5-obj; mtl: #twist5" scale="0.001 0.001 0.001"
+        animation="property: rotation; from: 0.000 0.000 0.000; to: -360.000 0.000 0.000; repeat: indefinite; dur: 100000; easing: linear">
+      </a-entity>
+      <a-entity
+        id="twist6-obj"
+        obj-model="obj: #twist6-obj; mtl: #twist6" scale="0.001 0.001 0.001"
+        animation="property: rotation; from: 0.000 0.000 0.000; to: 0.000 360.000 0.000; repeat: indefinite; dur: 100000; easing: linear">
+      </a-entity>
+      <a-entity
+        id="twist6-obj"
+        obj-model="obj: #twist7-obj; mtl: #twist7" scale="0.001 0.001 0.001"
+        animation="property: rotation; from: 0.000 0.000 0.000; to: 0.000 360.000 0.000; repeat: indefinite; dur: 100000; easing: linear">
+      </a-entity>
+      <a-entity
+        id="twist7-obj"
+        obj-model="obj: #twist8-obj; mtl: #twist8" scale="0.001 0.001 0.001"
+        animation="property: rotation; from: 0.000 0.000 0.000; to: 0.000 360.000 0.000; repeat: indefinite; dur: 100000; easing: linear">
+      </a-entity>
+
+      <!-- Lights. -->
+      <a-entity animation="property: rotation; to: 0 0 360; dur: 200000; easing: linear; loop: true">
+        <a-entity mixin="light" position="30 0 0"></a-entity>
+      </a-entity>
+
+      <a-entity animation="property: rotation; to: 360 0 0; dur: 30000; easing: linear; loop: true">
+        <a-entity mixin="light" position="0 0 40"></a-entity>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
