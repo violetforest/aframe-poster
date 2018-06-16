@@ -6,17 +6,22 @@
     <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
     <script src="./shaders/displacement-offset-shader.js"></script>
     <script src="./shaders/simple-shader.js"></script>
+    <script src="./shaders/simple-shader2.js"></script>
+    <script src="./shaders/pretty-normals.js"></script>
+    <script src="./shaders/plasma.js"></script>
     <script src="https://unpkg.com/aframe-animation-component@3.2.5/dist/aframe-animation-component.min.js"></script>
     <script src="https://unpkg.com/aframe-randomizer-components@3.0.2/dist/aframe-randomizer-components.min.js"></script>
     <script src="https://unpkg.com/aframe-entity-generator-component@3.0.1/dist/aframe-entity-generator-component.min.js"></script>
   </head>
   <body>
-    <a-scene background="color: #111">
+    <a-scene background="color: #000">
+      <a-camera far="30000"></a-camera>
+      <a-sky color="#000"></a-sky>
       <a-assets>
         <a-mixin id="light"
            geometry="primitive: sphere; radius: 1.5"
            material="color: #FFF; shader: flat"
-           light="color: #e8ffff; distance: 300; intensity: 1; type: directional">
+           light="color: #f1e3fd; distance: 300; intensity: 1; type: directional">
         </a-mixin>
         <a-asset-item id="twist1-obj" src="./models/twist/twist1.obj"></a-asset-item>
         <a-asset-item id="twist2-obj" src="./models/twist/twist2.obj"></a-asset-item>
@@ -32,26 +37,29 @@
         myoffset-updater
         animation="property: rotation; from: 0.000 0.000 0.000; to: 0.000 360.000 0.000; repeat: indefinite; dur: 100000; easing: linear">
       </a-entity>
-      <a-entity id="twist2-obj" obj-model="obj: #twist2-obj; mtl: #twist2"
-        scale="173.000 173.000 173.000"
-        position="0.000 0.000 -7.757"
+      <!-- <a-entity id="twist2-obj" obj-model="obj: #twist2-obj; mtl: #twist2"
+        position="0.000 0.000 0.000"
+        material="shader:displacement-offset"
         animation="property: rotation; from: 0.000 0.000 0.000; to: 0.000 360.000 0.000; repeat: indefinite; dur: 100000; easing: linear">
-      </a-entity>
+      </a-entity> -->
       <a-entity
         id="twist3-obj"
         obj-model="obj: #twist3-obj; mtl: #twist3"
         position="1.209 0.000 0.000"
         scale="0.02 0.02 0.02"
-        material="shader:simple"
+        material="shader:plasma"
         animation="property: rotation; from: 0.000 0.000 0.000; to: 0.000 360.000 0.000; repeat: indefinite; dur: 100000; easing: linear">
       </a-entity>
       <a-entity
         id="twist4-obj"
-        obj-model="obj: #twist4-obj; mtl: #twist4" scale="0.001 0.001 0.001"
+        material="shader:plasma"
+        position="9.000 1.600 -6.295"
+        obj-model="obj: #twist4-obj; mtl: #twist4" scale="1.000 1.000 1.000"
         animation="property: rotation; from: 0.000 0.000 0.000; to: 0.000 360.000 0.000; repeat: indefinite; dur: 100000; easing: linear">
       </a-entity>
       <a-entity
         id="twist5-obj"
+        material="shader:plasma"
         obj-model="obj: #twist5-obj; mtl: #twist5" scale="0.001 0.001 0.001"
         animation="property: rotation; from: 0.000 0.000 0.000; to: -360.000 0.000 0.000; repeat: indefinite; dur: 100000; easing: linear">
       </a-entity>
@@ -72,13 +80,9 @@
       </a-entity>
 
       <!-- Lights. -->
-      <a-entity animation="property: rotation; to: 0 0 360; dur: 200000; easing: linear; loop: true">
+      <!-- <a-entity animation="property: rotation; to: 0 0 360; dur: 200000; easing: linear; loop: true">
         <a-entity mixin="light" position="30 0 0"></a-entity>
-      </a-entity>
-
-      <a-entity animation="property: rotation; to: 360 0 0; dur: 30000; easing: linear; loop: true">
-        <a-entity mixin="light" position="0 0 40"></a-entity>
-      </a-entity>
+      </a-entity> -->
     </a-scene>
   </body>
 </html>

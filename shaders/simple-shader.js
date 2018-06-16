@@ -3,7 +3,7 @@ AFRAME.registerShader('simple', {
     timeMsec: {type:'time', is:'uniform'},
     resolution: {type: 'vec2', is: 'uniform', default: {x:500, y:500}},
     displacement: {type: 'float', is: 'attribute'},
-    amplitude: {type: 'float', default: 0}
+    amplitude: {type: 'float', default: 10}
   },
   vertexShader: `
 
