@@ -21,7 +21,7 @@
         <a-mixin id="light"
            geometry="primitive: sphere; radius: 1.5"
            material="color: #FFF; shader: flat"
-           light="color: #f1e3fd; distance: 300; intensity: 1; type: directional">
+           light="color: #fff; distance: 300; intensity: 1; type: directional">
         </a-mixin>
         <a-asset-item id="twist1-obj" src="./models/twist/twist1.obj"></a-asset-item>
         <a-asset-item id="twist2-obj" src="./models/twist/twist2.obj"></a-asset-item>
@@ -32,51 +32,58 @@
         <a-asset-item id="twist8-obj" src="./models/twist/twist8.obj"></a-asset-item>
       </a-assets>
 
-      <a-entity id="twist1-obj" obj-model="obj: #twist1-obj; mtl: #twist1" scale="0.001 0.001 0.001"
-        material="shader:displacement-offset"
-        myoffset-updater
-        animation="property: rotation; from: 0.000 0.000 0.000; to: 0.000 360.000 0.000; repeat: indefinite; dur: 100000; easing: linear">
+      <a-entity id="twist1-obj"
+        obj-model="obj: #twist1-obj; mtl: #twist1"
+        scale="0.009 0.009 0.009"
+        position="-80.000 -71.000 -9.000"
+        animation="property: rotation; from: 0.000 0.000 0.000; to: 0.000 0.000 -360.000; loop: indefinite; dur: 10000; easing: linear">
       </a-entity>
-      <!-- <a-entity id="twist2-obj" obj-model="obj: #twist2-obj; mtl: #twist2"
-        position="0.000 0.000 0.000"
-        material="shader:displacement-offset"
-        animation="property: rotation; from: 0.000 0.000 0.000; to: 0.000 360.000 0.000; repeat: indefinite; dur: 100000; easing: linear">
-      </a-entity> -->
+      <a-entity id="twist2-obj" obj-model="obj: #twist2-obj; mtl: #twist2"
+        position="0.000 0.244 0.000"
+        scale="0.002 0.002 0.002"
+        animation="property: rotation; from: 0.000 0.000 0.000; to: 0.000 0.000 -360.000; loop: indefinite; dur: 10000; easing: linear">
+      </a-entity>
       <a-entity
         id="twist3-obj"
         obj-model="obj: #twist3-obj; mtl: #twist3"
         position="1.209 0.000 0.000"
+        rotation="0.000 180.000 0.000"
         scale="0.02 0.02 0.02"
         material="shader:plasma"
-        animation="property: rotation; from: 0.000 0.000 0.000; to: 0.000 360.000 0.000; repeat: indefinite; dur: 100000; easing: linear">
+        animation="property: rotation; from: 0.000 0.000 0.000; to: 0.000 360.000 0.000; loop: indefinite; dur: 100000; easing: linear">
       </a-entity>
       <a-entity
         id="twist4-obj"
         material="shader:plasma"
         position="9.000 1.600 -6.295"
         obj-model="obj: #twist4-obj; mtl: #twist4" scale="1.000 1.000 1.000"
-        animation="property: rotation; from: 0.000 0.000 0.000; to: 0.000 360.000 0.000; repeat: indefinite; dur: 100000; easing: linear">
+        animation="property: rotation; from: 0.000 0.000 0.000; to: 0.000 360.000 0.000; loop: indefinite; dur: 100000; easing: linear">
       </a-entity>
       <a-entity
         id="twist5-obj"
         material="shader:plasma"
-        obj-model="obj: #twist5-obj; mtl: #twist5" scale="0.001 0.001 0.001"
-        animation="property: rotation; from: 0.000 0.000 0.000; to: -360.000 0.000 0.000; repeat: indefinite; dur: 100000; easing: linear">
-      </a-entity>
-      <a-entity
-        id="twist6-obj"
-        obj-model="obj: #twist6-obj; mtl: #twist6" scale="0.001 0.001 0.001"
-        animation="property: rotation; from: 0.000 0.000 0.000; to: 0.000 360.000 0.000; repeat: indefinite; dur: 100000; easing: linear">
-      </a-entity>
-      <a-entity
-        id="twist6-obj"
-        obj-model="obj: #twist7-obj; mtl: #twist7" scale="0.001 0.001 0.001"
-        animation="property: rotation; from: 0.000 0.000 0.000; to: 0.000 360.000 0.000; repeat: indefinite; dur: 100000; easing: linear">
+        obj-model="obj: #twist5-obj; mtl: #twist5"
+        position="0.000 30.000 -3.642"
+        scale="0.003 0.003 0.003"
+        rotation="0.000 74.000 0.000"
+        animation="property: rotation; from: 0.000 0.000 0.000; to: -360.000 0.000 0.000; loop: indefinite; dur: 10000; easing: linear">
       </a-entity>
       <a-entity
         id="twist7-obj"
-        obj-model="obj: #twist8-obj; mtl: #twist8" scale="0.001 0.001 0.001"
-        animation="property: rotation; from: 0.000 0.000 0.000; to: 0.000 360.000 0.000; repeat: indefinite; dur: 100000; easing: linear">
+        material="shader:simple"
+        position="4.000 34.600 -19.295"
+        scale="0.06 0.06 0.06"
+        obj-model="obj: #twist7-obj; mtl: #twist7" scale="0.001 0.001 0.001"
+        animation="property: rotation; from: 0.000 0.000 0.000; to: -360.000 0.000 0.000; loop: indefinite; dur: 10000; easing: linear">
+      </a-entity>
+      <a-entity
+        id="twist8-obj"
+        material="shader:simple"
+        position="-55.000 -19.600 99.295"
+        scale="0.08 0.08 0.08"
+        rotation="0.00 180.00 0.00"
+        obj-model="obj: #twist8-obj; mtl: #twist8"
+        animation="property: rotation; from: 360.000 0.000 0.000; to: 0.000 0.000 0.000; loop: indefinite; dur: 10000; easing: linear">
       </a-entity>
 
       <!-- Lights. -->

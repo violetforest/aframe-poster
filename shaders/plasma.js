@@ -27,11 +27,11 @@ AFRAME.registerShader('plasma', {
     varying vec3 vNormal;
 
 		void main() {
-      float scale = 0.01;
-      float time = timeMsec / 100.0;
-      float r1 = 0.4 ;
-      float r2 = 0.49 ;
-      float r3 = 0.2449;
+      float scale = 0.005;
+      float time = timeMsec / 10.0;
+      float r1 = 0.24 ;
+      float r2 = 3.49 ;
+      float r3 = 4.2449;
       float x = gl_FragCoord.x;
       float y = gl_FragCoord.y;
       float h = resolution.y;
@@ -44,10 +44,10 @@ AFRAME.registerShader('plasma', {
       float dotProduct = max(0.1, dot);
 
       float col =
-    sin(distance( vec2(r1 * y + time, r1 * y + time), vec2(w * r1 * r2, h * r2) ) * scale);
+    sin(distance( vec2(r1 + time, r1 * y + time), vec2(w * r1 * r2, h * r2) ) * scale);
 
-    vec3 color = vec3( dotProduct + 0.11 * sin(col), sin(col) - dotProduct, cos(col)) + 0.0301;
-    color += mod(gl_FragCoord.x, 3.0) > 1.0 ? 0.0 : 0.1;
+    vec3 color = vec3( dotProduct + 0.11 * sin(col), sin(col) - dotProduct, cos(col)) + 0.301;
+    color -= mod(gl_FragCoord.x, 1.0) > 1.0 ? 0.4 : 0.2;
 
     gl_FragColor = vec4(color, 1.0);
   }

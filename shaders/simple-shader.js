@@ -28,17 +28,17 @@ AFRAME.registerShader('simple', {
     uniform vec2 resolution;
 
     void main() {
-      vec3 light = vec3(0.5, -1.0, -1.0);
+      vec3 light = vec3(0.5, 1.0, -1.0);
       light = normalize(light);
       float dot = dot(vNormal, light);
       float dotProduct = max(0.0, dot);
-      float dotClamped = clamp(dotProduct, 0.0, dot);
+      float dotClamped = clamp(dotProduct, 2.4, dot);
       vec2 pos = gl_FragCoord.xy/resolution;
       float r = sin(pos.y * timeMsec);
       float g = 0.572 * cos(pos.x * timeMsec);
-      float b = 0.164 + sin(pos.x * 3.252) + sin(pos.y + 5.348) * r;
-      g = fract(500.0 - sin(b));
-  	  gl_FragColor = vec4(r, dotClamped, b, 3.976);
+      float b = sin(pos.y) * r + dotClamped;
+      g = fract(500.0 - sin(r));
+  	  gl_FragColor = vec4(r + dotClamped, 0.0, b, 2.976);
     }
 
 `
