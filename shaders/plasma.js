@@ -28,7 +28,7 @@ AFRAME.registerShader('plasma', {
 
 		void main() {
       float scale = 0.005;
-      float time = timeMsec / 10.0;
+      float time = timeMsec / 5.0;
       float r1 = 0.24 ;
       float r2 = 3.49 ;
       float r3 = 4.2449;
